@@ -10,6 +10,15 @@ const products = data.products;
 
 const server = express();
 
+/*
+Express middleware functions are executed sequentially as defined. 
+They can pass control to the next middleware using `next()`. 
+Modifies the request before it reaches the next middleware or endpoints.
+Sequence of middleware is very important, as first middleware is first traversed by request.
+
+Middle-wares can be used for many use cases, like loggers, authentication, parsing data etc.
+*/
+// # Middlewares
 server.use(express.json()); // for body parsing application/json
 // server.use(express.urlencoded());
 server.use((req, res, next) => {
